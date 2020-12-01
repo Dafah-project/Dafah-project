@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-
+//import Dropzone from 'react-dropzone';
 
 export default class AddItems extends Component {
   constructor(props) {
@@ -10,12 +10,14 @@ export default class AddItems extends Component {
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
+    this.onChangeimg = this.onChangeimg.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
       itemName: "",
       category : "Women",
-      description: ""
+      description: "",
+      image : ""
     }
   }
 
@@ -39,6 +41,11 @@ export default class AddItems extends Component {
       description: e.target.value
     });
   }
+  onChangeimg(e) {
+    this.setState({
+      image : e.target.value
+    });
+  }
 
 
   onSubmit(e) {
@@ -47,6 +54,7 @@ export default class AddItems extends Component {
       itemName: this.state.itemName,
       category: this.state.category,
       description: this.state.description,
+      image : this.state.image
     }
 
     console.log(item);
@@ -56,6 +64,8 @@ export default class AddItems extends Component {
 
     window.location = '/ItemsList'
   }
+
+ 
 
   render() {
     return (
@@ -102,7 +112,17 @@ export default class AddItems extends Component {
           </div>
 
           <br />
-
+         <div >
+         <div className = "addimg">
+            <label>Add imgage</label>
+            <input 
+              type = "text" 
+              className = "Addimg" 
+              value = {this.state.image} 
+              onChange = {this.onChangeimg}/>
+          </div>
+        
+</div>   
           <div className = "submitButton">
             <input type = "submit" value = "Submit" className = "button" />
           </div>

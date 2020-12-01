@@ -16,11 +16,13 @@ router.route('/add').post((req, res) => {
   const itemName = req.body.itemName;
   const category = req.body.category;
   const description = req.body.description;
+  const image=req.body.image;
 
   const newItem = new AddItems ({
     itemName,
     category,
-    description
+    description,
+    image
   });
   
   newItem.save()
@@ -49,7 +51,7 @@ router.route("/update/:id", ).post((req, res) => {
     items.itemName = req.body.itemName;
     items.category = req.body.category;
     items.description = req.body.description;
-    // items.image = req.body.image;
+    items.image = req.body.image;
     items.save()
     .then(() => res.json("Item is updated!"))
     .catch(err => res.status(400).json('Error: ' + err));

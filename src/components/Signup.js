@@ -59,23 +59,29 @@ export default class Signup extends Component {
             }
             //post request tosend the data to the serverwhereitwill be saved
             //this condetion to prevent users from creating short user name for securty
-            if (this.state.username.length < 4 ){
-            alert('please choose another name')
-            }
+            // if (this.state.username.length < 4 ){
+            // alert('please choose another name')
+            // }
             //the input should be a number this should give the user an alreat if they type anything not a number
             // if (this.state.phone !== number){
             //   alert('please make sure to fill in phone with numbers only')
             // }
             //add conctions if the user name already taken
             //if(this.state.username )
-            else{
+           
               axios.post("http://localhost:3000/addUser/adduser", user)
             .then(res => console.log(res.data));
+            window.location = '/login'
             console.log(user);
             console.log('user added')
-            }
+            
+            
             
         }
+        
+        
+          
+
 //where the magic happence
     render(){
         return (

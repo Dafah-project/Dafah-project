@@ -8,6 +8,8 @@ router.route('/').get((req, res) => {
     AddUser.find()
     .then(users => res.json(users))
     .catch(err => res.status(400).json('Error: ' + err));
+  //    .then(()=> res.redirect('/login'))
+  //  .catch(err => res.redirect('/addUser'))
   });
 
   router.route('/adduser').post(async (req, res) => {
@@ -20,7 +22,7 @@ router.route('/').get((req, res) => {
    //console.log(hashedPassword)
    newUser.save()
   //  .then(()=> res.redirect('/login'))
-  //  .catch(err => res.redirect('/add')
+  //  .catch(err => res.redirect('/addUser'))
     });
 
     module.exports= router;

@@ -15,6 +15,7 @@ router.route('/').get((req, res) => {
 router.route('/add').post((req, res) => {
   const itemName = req.body.itemName;
   const category = req.body.category;
+  const type = req.body.type;
   const description = req.body.description;
   const image=req.body.image;
 
@@ -22,7 +23,8 @@ router.route('/add').post((req, res) => {
     itemName,
     category,
     description,
-    image
+    image,
+    type
   });
   
   newItem.save()
@@ -50,8 +52,9 @@ router.route("/update/:id", ).post((req, res) => {
   .then(items => {
     items.itemName = req.body.itemName;
     items.category = req.body.category;
+    items.type = req.body.type;
     items.description = req.body.description;
-    items.image = req.body.image;
+     items.image = req.body.image;
     items.save()
     .then(() => res.json("Item is updated!"))
     .catch(err => res.status(400).json('Error: ' + err));

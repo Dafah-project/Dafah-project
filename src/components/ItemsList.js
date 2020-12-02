@@ -8,12 +8,11 @@ const ClothesItem = props => (
         <td>{props.item.category}</td>
         <td>{props.item.description}</td>
         <td>
-        <img src= {props.item.image} width="200" height="200" class="w3-round" alt="Norway"/>
-        
-        </td>
-
-        <td>
-            <a href = '#' onClick = {() => {props.deleteItem(props.item._id)}}>Delete</a>  
+        <button type = "button" 
+        className = "btn btn-dark" 
+        onClick = {() => {props.deleteItem(props.item._id)}}>
+        Delete
+        </button>
         </td>
     </tr>
 )
@@ -22,7 +21,9 @@ export default class ItemsList extends Component {
 
     constructor(props) {
         super(props);
+
         this.deleteItem = this.deleteItem.bind(this);
+
         this.state = {
             items: []
         }
@@ -50,20 +51,20 @@ export default class ItemsList extends Component {
         return this.state.items.map(currentItem => {
             return <ClothesItem item = { currentItem } deleteItem = { this.deleteItem } key = { currentItem._id }/>; 
         })
-    }
+    } 
+
 
     render() {
+
         return (
             <div>
                 <h2>Clothing</h2>
                 <table className = "table">
                 <thead className = "thead">
                     <tr>
-                        {/* <th>Image</th> */}
                         <th>Item Name</th>
                         <th>Category</th>
                         <th>Description</th>
-                        <th>image</th>
                     </tr>
                 </thead>
                 <tbody>

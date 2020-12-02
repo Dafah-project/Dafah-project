@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from "axios";
-//import Dropzone from 'react-dropzone';
+
 
 export default class AddItems extends Component {
   constructor(props) {
@@ -10,14 +10,16 @@ export default class AddItems extends Component {
     this.onChangeItemName = this.onChangeItemName.bind(this);
     this.onChangeCategory = this.onChangeCategory.bind(this);
     this.onChangeDescription = this.onChangeDescription.bind(this);
-    this.onChangeimg = this.onChangeimg.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.onChangeimg = this.onChangeimg.bind(this);
+    this.onChangetype = this.onChangetype.bind(this);
 
     this.state = {
       itemName: "",
       category : "Women",
       description: "",
-      image : ""
+      image : "",
+      type:"Jacket"
     }
   }
 
@@ -35,6 +37,12 @@ export default class AddItems extends Component {
       category : value
     });
   }
+  onChangetype(e){
+    const { value } = e.target
+    this.setState({
+     type: value
+    });
+  }
 
   onChangeDescription(e) {
     this.setState({
@@ -47,14 +55,12 @@ export default class AddItems extends Component {
     });
   }
 
-
   onSubmit(e) {
     e.preventDefault();
     const item = {
       itemName: this.state.itemName,
       category: this.state.category,
       description: this.state.description,
-      image : this.state.image
     }
 
     console.log(item);
@@ -65,53 +71,77 @@ export default class AddItems extends Component {
     window.location = '/ItemsList'
   }
 
- 
-
   render() {
     return (
-      <div>
-        <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
-        <br />
-        <form onSubmit = {this.onSubmit}>
-         
-          <div className = "addItemName">
-            <label>Item Name  </label>
-            <input 
-              type = "text" 
-              className = "itemName" 
-              value = {this.state.itemName} 
-              onChange = {this.onChangeItemName}/>
-          </div>
+        <div className = "container">
 
-          <br />
+          <form className="text-center border border-light p-5" action="#!" onSubmit = {this.onSubmit}>
 
-          <div className = "addCategory">
-            <label>Select Category  </label>
+            <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
+
+            <p className="h4 mb-4">Donate Your Item</p>
+
+                <div className="col">
+                <label>Item Name</label>
+                <input 
+                  type = "text" 
+                  className = "form-control" 
+                  value = {this.state.itemName} 
+                  onChange = {this.onChangeItemName}
+                  text-align = "center"
+                  placeholder = "Insert Item Name"/>
+                </div>
+
+                <br />
+
+                <div className="col">
+                  <label>Select Category  </label>
+                  <select
+                    ref = "userInput"
+                    required
+                    className = "form-control"
+                    value = {this.state.category}
+                    onChange = {this.onChangeCategory}
+                    >
+                    <option value = "Women">Women</option>
+                    <option value = "Men">Men</option>
+                    <option value = "Kids">Kids</option>
+                  </select>
+                </div>
+
+                <br />
+                <div className = "type">
+            <label>Select Type  </label>
             <select
               ref = "userInput"
               required
-              className = "category"
-              value = {this.state.category}
-              onChange = {this.onChangeCategory}
+              className = "type"
+              value = {this.state.type}
+              onChange = {this.onChangetype}
               >
-              <option value = "Women">Women</option>
-              <option value = "Men">Men</option>
-              <option value = "Kids">Kids</option>
+              <option value = "Shose">Shose</option>
+              <option value = "Dress">Dress</option>
+              <option value = "Jacket">Jacket</option>
+              <option value = "Blouse">Blouse</option>
+              <option value = "Gloves">Gloves</option>
+              <option value = "Hat">Hat</option>
+              <option value = "Scarf">Scarf</option>
             </select>
           </div> 
-
           <br />
 
-          <div className = "addDescription">
-            <label>Description  </label>
-            <input 
-              type = "text" 
-              className = "description" 
-              value = {this.state.description} 
-              onChange = {this.onChangeDescription}/>
-          </div>
+                <div className = "col">
+                  <label>Description  </label>
+                  <input 
+                    type = "text" 
+                    className = "form-control" 
+                    value = {this.state.description} 
+                    onChange = {this.onChangeDescription}
+                    placeholder = "Please insert a detailed description of your item and add its current condition"/>
+                </div>
 
-          <br />
+                <br />
+                
          <div >
          <div className = "addimg">
             <label>Add imgage</label>
@@ -123,12 +153,66 @@ export default class AddItems extends Component {
           </div>
         
 </div>   
-          <div className = "submitButton">
-            <input type = "submit" value = "Submit" className = "button" />
-          </div>
+
+                <div>
+                <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
+                </div>
 
         </form>
-      </div>
+        </div>
+        
     )
   }
 }
+
+      // <div>
+      //   <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
+      //   <br />
+      //   <form onSubmit = {this.onSubmit}>
+          
+      //     <div className = "addItemName">
+      //       <label>Item Name  </label>
+      //       <input 
+      //         type = "text" 
+      //         className = "form-control" 
+      //         value = {this.state.itemName} 
+      //         onChange = {this.onChangeItemName}/>
+
+      //     </div>
+          
+      //     <br />
+
+      //     <div className = "addCategory">
+      //       <label>Select Category  </label>
+      //       <select
+      //         ref = "userInput"
+      //         required
+      //         className = "form-control"
+      //         value = {this.state.category}
+      //         onChange = {this.onChangeCategory}
+      //         >
+      //         <option value = "Women">Women</option>
+      //         <option value = "Men">Men</option>
+      //         <option value = "Kids">Kids</option>
+      //       </select>
+      //     </div> 
+
+      //     <br />
+
+      //     <div className = "addDescription">
+      //       <label>Description  </label>
+      //       <input 
+      //         type = "text" 
+      //         className = "form-control" 
+      //         value = {this.state.description} 
+      //         onChange = {this.onChangeDescription}/>
+      //     </div>
+
+      //     <br />
+
+      //     <div className = "submitButton">
+      //     <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
+      //     </div>
+
+      //   </form>
+      // </div>

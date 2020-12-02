@@ -15,7 +15,6 @@ router.route('/').get((req, res) => {
    const hashedPassword =  await bcrypt.hash(req.body.password, 10)
    const phone = req.body.phone;
    const address = req.body.address;
-   
    //const password = req.body.password;
    const newUser = new AddUser({username:username,password:hashedPassword, phone: phone, address:address });
    //console.log(hashedPassword)

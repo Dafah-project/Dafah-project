@@ -6,6 +6,7 @@ const Schema = mongoose.Schema;
 const addItemsSchema = new Schema ({
   itemName: { type: String, required: true, trim: true },
   category: { type: String, required: true, trim: true },
+  type: { type: String, required: true, trim: true },
   description: { type: String, required: true, trim: true },
   image : {type:String,required: true, trim: true}
 }, {

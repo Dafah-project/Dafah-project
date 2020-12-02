@@ -10,17 +10,15 @@ const ClothesItem = props => (
         <td>{props.item.description}</td>
         <td>
         <img src= {props.item.image} width="200" height="200" class="w3-round" alt="Norway"/>
-        
         </td>
         <td>
-        
-        <td></td>
         <button type = "button" 
         className = "btn btn-dark" 
         onClick = {() => {props.deleteItem(props.item._id)}}>
         Delete
         </button>
         </td>
+        
     </tr>
 )
 
@@ -73,7 +71,7 @@ export default class ItemsList extends Component {
                         <th>Category</th>
                         <th>Type</th>
                         <th>Description</th>
-                        <th>Image</th>
+                        <th>image</th>
                         
                     </tr>
                 </thead>

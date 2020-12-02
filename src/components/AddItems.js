@@ -61,6 +61,8 @@ export default class AddItems extends Component {
       itemName: this.state.itemName,
       category: this.state.category,
       description: this.state.description,
+      type:this.state.type,
+      image:this.state.image
     }
 
     console.log(item);

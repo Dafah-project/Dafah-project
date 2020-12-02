@@ -59,56 +59,115 @@ export default class AddItems extends Component {
 
   render() {
     return (
-      <div>
-        <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
-        <br />
-        <form onSubmit = {this.onSubmit}>
-         
-          <div className = "addItemName">
-            <label>Item Name  </label>
-            <input 
-              type = "text" 
-              className = "itemName" 
-              value = {this.state.itemName} 
-              onChange = {this.onChangeItemName}/>
-          </div>
+        <div className = "container">
 
-          <br />
+          <form className="text-center border border-light p-5" action="#!" onSubmit = {this.onSubmit}>
 
-          <div className = "addCategory">
-            <label>Select Category  </label>
-            <select
-              ref = "userInput"
-              required
-              className = "category"
-              value = {this.state.category}
-              onChange = {this.onChangeCategory}
-              >
-              <option value = "Women">Women</option>
-              <option value = "Men">Men</option>
-              <option value = "Kids">Kids</option>
-            </select>
-          </div> 
+            <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
 
-          <br />
+            <p className="h4 mb-4">Donate Your Item</p>
 
-          <div className = "addDescription">
-            <label>Description  </label>
-            <input 
-              type = "text" 
-              className = "description" 
-              value = {this.state.description} 
-              onChange = {this.onChangeDescription}/>
-          </div>
+                <div className="col">
+                <label>Item Name</label>
+                <input 
+                  type = "text" 
+                  className = "form-control" 
+                  value = {this.state.itemName} 
+                  onChange = {this.onChangeItemName}
+                  text-align = "center"
+                  placeholder = "Insert Item Name"/>
+                </div>
 
-          <br />
+                <br />
 
-          <div className = "submitButton">
-            <input type = "submit" value = "Submit" className = "button" />
-          </div>
+                <div className="col">
+                  <label>Select Category  </label>
+                  <select
+                    ref = "userInput"
+                    required
+                    className = "form-control"
+                    value = {this.state.category}
+                    onChange = {this.onChangeCategory}
+                    >
+                    <option value = "Women">Women</option>
+                    <option value = "Men">Men</option>
+                    <option value = "Kids">Kids</option>
+                  </select>
+                </div>
+
+                <br />
+
+                <div className = "col">
+                  <label>Description  </label>
+                  <input 
+                    type = "text" 
+                    className = "form-control" 
+                    value = {this.state.description} 
+                    onChange = {this.onChangeDescription}
+                    placeholder = "Please insert a detailed description of your item and add its current condition"/>
+                </div>
+
+                <br />
+
+                <div>
+                <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
+                </div>
 
         </form>
-      </div>
+        </div>
+        
     )
   }
 }
+
+      // <div>
+      //   <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
+      //   <br />
+      //   <form onSubmit = {this.onSubmit}>
+          
+      //     <div className = "addItemName">
+      //       <label>Item Name  </label>
+      //       <input 
+      //         type = "text" 
+      //         className = "form-control" 
+      //         value = {this.state.itemName} 
+      //         onChange = {this.onChangeItemName}/>
+
+      //     </div>
+          
+      //     <br />
+
+      //     <div className = "addCategory">
+      //       <label>Select Category  </label>
+      //       <select
+      //         ref = "userInput"
+      //         required
+      //         className = "form-control"
+      //         value = {this.state.category}
+      //         onChange = {this.onChangeCategory}
+      //         >
+      //         <option value = "Women">Women</option>
+      //         <option value = "Men">Men</option>
+      //         <option value = "Kids">Kids</option>
+      //       </select>
+      //     </div> 
+
+      //     <br />
+
+      //     <div className = "addDescription">
+      //       <label>Description  </label>
+      //       <input 
+      //         type = "text" 
+      //         className = "form-control" 
+      //         value = {this.state.description} 
+      //         onChange = {this.onChangeDescription}/>
+      //     </div>
+
+      //     <br />
+
+      //     <div className = "submitButton">
+      //     <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
+      //     </div>
+
+      //   </form>
+      // </div>

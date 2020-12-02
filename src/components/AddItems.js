@@ -63,16 +63,17 @@ export default class AddItems extends Component {
         <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
         <br />
         <form onSubmit = {this.onSubmit}>
-         
+          
           <div className = "addItemName">
             <label>Item Name  </label>
             <input 
               type = "text" 
-              className = "itemName" 
+              className = "form-control" 
               value = {this.state.itemName} 
               onChange = {this.onChangeItemName}/>
-          </div>
 
+          </div>
+          
           <br />
 
           <div className = "addCategory">
@@ -80,7 +81,7 @@ export default class AddItems extends Component {
             <select
               ref = "userInput"
               required
-              className = "category"
+              className = "form-control"
               value = {this.state.category}
               onChange = {this.onChangeCategory}
               >
@@ -96,7 +97,7 @@ export default class AddItems extends Component {
             <label>Description  </label>
             <input 
               type = "text" 
-              className = "description" 
+              className = "form-control" 
               value = {this.state.description} 
               onChange = {this.onChangeDescription}/>
           </div>
@@ -104,7 +105,7 @@ export default class AddItems extends Component {
           <br />
 
           <div className = "submitButton">
-            <input type = "submit" value = "Submit" className = "button" />
+          <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
           </div>
 
         </form>

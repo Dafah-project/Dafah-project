@@ -6,8 +6,15 @@ const ClothesItem = props => (
     <tr>
         <td>{props.item.itemName}</td>
         <td>{props.item.category}</td>
+        <td>{props.item.type}</td>
         <td>{props.item.description}</td>
         <td>
+        <img src= {props.item.image} width="200" height="200" class="w3-round" alt="Norway"/>
+        
+        </td>
+        <td>
+        
+        <td></td>
         <button type = "button" 
         className = "btn btn-dark" 
         onClick = {() => {props.deleteItem(props.item._id)}}>
@@ -64,7 +71,10 @@ export default class ItemsList extends Component {
                     <tr>
                         <th>Item Name</th>
                         <th>Category</th>
+                        <th>Type</th>
                         <th>Description</th>
+                        <th>Image</th>
+                        
                     </tr>
                 </thead>
                 <tbody>

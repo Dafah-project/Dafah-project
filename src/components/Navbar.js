@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 export default class Navbar extends Component {
 
   render() {
     return (
       <div>
-      <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+      <nav style = {{ color: "red" }} className="navbar navbar-dark bg-dark navbar-expand-lg">
         <Link to="/Homepage" className="navbar-brand">DAFAH</Link>
         <div className="collpase navbar-collapse">
-        <ul className="navbar-nav mr-auto">
+        <ul className="navbar-nav mr-auto" >
           <li className="navbar-item">
           <Link to="/AddItems" className="nav-link">Add Items</Link>
           </li>

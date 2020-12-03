@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
+import './App.css';
 
 
 import Homepage from './components/Homepage';
@@ -16,7 +17,7 @@ import Footer from './components/Footer'
 function App() {
   return (
     <Router>
-      <div>
+      {/* <div> */}
         <Navbar />
         <br />
         <Route path = "/homepage" component = { Homepage } />
@@ -24,8 +25,9 @@ function App() {
         <Route path = "/ItemsList" exact component = { ItemsList } />
         <Route path = "/addUser"  component = { Signup } />
         <Route path = "/login" component = { Login } />
+        <br />
       <Footer/>
-      </div>
+      {/* </div> */}
     </Router>
   );
 }

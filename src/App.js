@@ -19,13 +19,11 @@ function App() {
     <Router>
       {/* <div> */}
         <Navbar />
-        <br />
         <Route path = "/homepage" component = { Homepage } />
         <Route path = "/addItems" component = { AddItems } />
         <Route path = "/ItemsList" exact component = { ItemsList } />
         <Route path = "/addUser"  component = { Signup } />
         <Route path = "/login" component = { Login } />
-        <br />
       <Footer/>
       {/* </div> */}
     </Router>

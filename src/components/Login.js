@@ -36,7 +36,7 @@ export default class Login extends Component {
           password: this.state.password
         }
         axios.post("http://localhost:3000/addUser/login", user)
-            .then(res => console.log(res.data));
+            .then(res => window.location = '/AddItems');
             console.log(user);
             console.log('user loged in')
     }

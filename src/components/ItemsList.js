@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom" ;
 import axios from "axios";
 
 
@@ -13,8 +14,9 @@ const ClothesItem = props => (
         <img src= {props.item.image} width="200" height="200" class="w3-round" alt="Norway"/>
         </td>
         <td>
+        <Link to ={"/edit/"+props.item._id} className="btn btn-dark" >Edit</Link>
         <button type = "button" 
-        className = "btn btn-dark" 
+        className="btn btn-dark"
         onClick = {() => {props.deleteItem(props.item._id)}}>
         Delete
         </button>

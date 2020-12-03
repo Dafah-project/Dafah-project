@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import axios from "axios";
 
-export default class AddItems extends Component {
+
+
+export default class EditItems extends Component {
   constructor(props) {
     super(props);
 
@@ -18,9 +20,30 @@ export default class AddItems extends Component {
       category : "Women",
       description: "",
       image : "",
-      type:"Jacket"
+      type:"Jacket",
+    
     }
   }
+
+
+  componentDidMount() {
+    axios.get('http://localhost:3000/addItems/'+this.props.match.params.id)
+
+    
+      .then(response => {
+        this.setState({
+          itemName: response.data.itemName,
+          category: response.data.category,
+          description: response.data.description,
+          image: response.data.image,
+          type: response.data.type,
+        })  
+
+      })
+      .catch(function (error) {
+        console.log(error);
+      })
+    }
 
   //List of category
   //Event Handlers:
@@ -66,7 +89,7 @@ export default class AddItems extends Component {
 
     console.log(item);
 
-    axios.post("http://localhost:3000/addItems/add", item)
+    axios.post("http://localhost:3000/addItems/update/"+this.props.match.params.id, item)
       .then(res => console.log(res.data));
 
     window.location = '/ItemsList'
@@ -75,24 +98,23 @@ export default class AddItems extends Component {
   render() {
     return (
         <div className = "container">
-       
 
-          <form className="text-center border border-light p-9" action="#!" onSubmit = {this.onSubmit} >
+          <form className="text-center border border-light p-5" action="#!" onSubmit = {this.onSubmit}>
 
             <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
 
-            <p className="h4 mb-4">Donate Your Item</p>
+            <p className="h4 mb-4">Edit Your Item</p>
 
                 <div className="col">
                 <label>Item Name</label>
                 <input 
-                required="true"
                   type = "text" 
                   className = "form-control" 
                   value = {this.state.itemName} 
                   onChange = {this.onChangeItemName}
                   text-align = "center"
-                  placeholder = "Insert Item Name"/>
+                  // placeholder = "Insert Item Name"
+                  />
                 </div>
 
                 <br />
@@ -101,7 +123,7 @@ export default class AddItems extends Component {
                   <label>Select Category  </label>
                   <select
                     ref = "userInput"
-                    required="true"
+                    required
                     className = "form-control"
                     value = {this.state.category}
                     onChange = {this.onChangeCategory}
@@ -117,7 +139,7 @@ export default class AddItems extends Component {
             <label>Select Type  </label>
             <select
               ref = "userInput"
-              required="true"
+              required
               className = "form-control"
               value = {this.state.type}
               onChange = {this.onChangetype}
@@ -137,7 +159,6 @@ export default class AddItems extends Component {
                   <label>Description  </label>
                   <input 
                     type = "text" 
-                    required="true"
                     className = "form-control" 
                     value = {this.state.description} 
                     onChange = {this.onChangeDescription}
@@ -148,11 +169,10 @@ export default class AddItems extends Component {
                 
          <div >
          <div className = "addimg">
-            <label>Add image</label>
+            <label>Add Image URL</label>
             <input 
               type = "text" 
-              required="true"
-              className = "form-control" 
+              className = "form-control"
               value = {this.state.image} 
               onChange = {this.onChangeimg}/>
           </div>
@@ -160,7 +180,7 @@ export default class AddItems extends Component {
 </div>   
 
                 <div>
-                <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
+                <button type="submit" value = "Submit" className="btn btn-dark">Edit</button>
                 </div>
 
         </form>
@@ -169,55 +189,3 @@ export default class AddItems extends Component {
     )
   }
 }
-
-      // <div>
-      //   <h3> "Only by giving are you able to receive more than you already have." -Jim Rohn </h3>
-      //   <br />
-      //   <form onSubmit = {this.onSubmit}>
-          
-      //     <div className = "addItemName">
-      //       <label>Item Name  </label>
-      //       <input 
-      //         type = "text" 
-      //         className = "form-control" 
-      //         value = {this.state.itemName} 
-      //         onChange = {this.onChangeItemName}/>
-
-      //     </div>
-          
-      //     <br />
-
-      //     <div className = "addCategory">
-      //       <label>Select Category  </label>
-      //       <select
-      //         ref = "userInput"
-      //         required
-      //         className = "form-control"
-      //         value = {this.state.category}
-      //         onChange = {this.onChangeCategory}
-      //         >
-      //         <option value = "Women">Women</option>
-      //         <option value = "Men">Men</option>
-      //         <option value = "Kids">Kids</option>
-      //       </select>
-      //     </div> 
-
-      //     <br />
-
-      //     <div className = "addDescription">
-      //       <label>Description  </label>
-      //       <input 
-      //         type = "text" 
-      //         className = "form-control" 
-      //         value = {this.state.description} 
-      //         onChange = {this.onChangeDescription}/>
-      //     </div>
-
-      //     <br />
-
-      //     <div className = "submitButton">
-      //     <button type="submit" value = "Submit" className="btn btn-dark">Submit</button>
-      //     </div>
-
-      //   </form>
-      // </div>

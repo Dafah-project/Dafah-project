@@ -6,7 +6,7 @@ const AddItems = require('../models/addItems.model');
 
 //GET all items
 router.route('/').get((req, res) => {
-  AddItems.find()
+  AddItems.find() 
   .then(items => res.json(items))
   .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -16,11 +16,15 @@ router.route('/add').post((req, res) => {
   const itemName = req.body.itemName;
   const category = req.body.category;
   const description = req.body.description;
+  const image=req.body.image;
+  const type = req.body.type;
 
   const newItem = new AddItems ({
     itemName,
     category,
-    description
+    description,
+    image,
+    type
   });
   
   newItem.save()
@@ -49,7 +53,8 @@ router.route("/update/:id", ).post((req, res) => {
     items.itemName = req.body.itemName;
     items.category = req.body.category;
     items.description = req.body.description;
-    // items.image = req.body.image;
+    items.type = req.body.type;
+    items.image = req.body.image;
     items.save()
     .then(() => res.json("Item is updated!"))
     .catch(err => res.status(400).json('Error: ' + err));

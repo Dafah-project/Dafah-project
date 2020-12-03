@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
+
 
 import Homepage from './components/Homepage';
 import Navbar from './components/Navbar';
@@ -8,12 +10,13 @@ import AddItems from './components/AddItems';
 import ItemsList from './components/ItemsList';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Footer from './components/Footer'
 
 
 function App() {
   return (
     <Router>
-      <div className = "container">
+      <div>
         <Navbar />
         <br />
         <Route path = "/homepage" component = { Homepage } />
@@ -21,6 +24,7 @@ function App() {
         <Route path = "/ItemsList" exact component = { ItemsList } />
         <Route path = "/addUser"  component = { Signup } />
         <Route path = "/login" component = { Login } />
+      <Footer/>
       </div>
     </Router>
   );

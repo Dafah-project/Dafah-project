@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+
+
+
 export default class Login extends Component {
     constructor(props) {
         super(props);  
@@ -34,11 +37,27 @@ export default class Login extends Component {
         const user = {
           username: this.state.username,
           password: this.state.password
-        }
+        } 
+        
         axios.post("http://localhost:3000/addUser/login", user)
-            .then(res => console.log(res.data));
-            console.log(user);
-            console.log('user loged in')
+        .then(response =>{
+      // console.log (response)
+       window.localStorage.setItem('token', response.data);
+
+        window.location = '/AddItems'
+        })
+        .catch(err =>console.log(err, "POST req/handleClick failed!") );
+          
+        
+        //  .then( (response) => {
+            
+        //     let token = response.data.access;
+        //     localStorage.setItem("SavedToken", 'Bearer ' + token);
+        //     axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+        //     (this.$router.push({name:'HomePage'}));
+            
+        //     })
+         
     }
     render(){
         return (

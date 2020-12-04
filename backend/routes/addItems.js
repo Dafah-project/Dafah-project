@@ -1,14 +1,15 @@
 const router = require('express').Router();
 const AddItems = require('../models/addItems.model');
-
+const verfiy = require('./verifyToken')
 //AddItems is the schema
 //CRUD Operations:
-
+// verfiy,
 //GET all items
-router.route('/').get((req, res) => {
+router.route('/').get(( req, res) => {
   AddItems.find()
   .then(items => res.json(items))
   .catch(err => res.status(400).json('Error: ' + err));
+  
 });
 
 //POST(CREATE) new item

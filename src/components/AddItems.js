@@ -50,7 +50,7 @@ export default class AddItems extends Component {
     }
 
     console.log(item);
-
+    //if()
     axios.post("http://localhost:3000/addItems/add", item)
       .then(res => console.log(res.data));
 

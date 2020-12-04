@@ -8,6 +8,7 @@ import AddItems from './components/AddItems';
 import ItemsList from './components/ItemsList';
 import Login from './components/Login';
 import Signup from './components/Signup';
+import Profile from './components/profile';
 
 
 function App() {
@@ -21,6 +22,8 @@ function App() {
         <Route path = "/ItemsList" exact component = { ItemsList } />
         <Route path = "/addUser"  component = { Signup } />
         <Route path = "/login" component = { Login } />
+        <Route path = "/profile" component = { Profile } />
+
       </div>
     </Router>
   );

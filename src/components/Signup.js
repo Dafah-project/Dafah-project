@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+
 //creat a class for the sign up component 
 export default class Signup extends Component {
     constructor(props) {
@@ -59,23 +60,29 @@ export default class Signup extends Component {
             }
             //post request tosend the data to the serverwhereitwill be saved
             //this condetion to prevent users from creating short user name for securty
-            if (this.state.username.length < 4 ){
-            alert('please choose another name')
-            }
+            // if (this.state.username.length < 4 ){
+            // alert('please choose another name')
+            // }
             //the input should be a number this should give the user an alreat if they type anything not a number
             // if (this.state.phone !== number){
             //   alert('please make sure to fill in phone with numbers only')
             // }
             //add conctions if the user name already taken
             //if(this.state.username )
-            else{
-              axios.post("http://localhost:3000/addUser/adduser", user)
-            .then(res => console.log(res.data));
-            console.log(user);
-            console.log('user added')
-            }
+           
+            axios.post("http://localhost:3000/addUser/adduser", user)
+            .then(res => 
+              //  console.log(user)
+              window.location = '/login' 
+              );
             
+             console.log(user);
+            console.log('user added')   
         }
+        
+        
+          
+
 //where the magic happence
     render(){
         return (
@@ -112,7 +119,10 @@ export default class Signup extends Component {
             </form>
             <br></br>
             <br></br>
-          <a href='/login'> to log in </a>
+            <b>If you already have an account go to</b>
+            <br></br>
+            <br></br>
+            <a href='/login'> Log In </a>
             </div>
         )
     }

@@ -78,12 +78,12 @@ export default class ItemsList extends Component {
     render() {
 
         return (
-            <div>
-                <h2>Clothing</h2>
+            <div className = "container">
+                <h2 className="text-center">Clothing</h2>
                 <input name="search" className="form-control" onChange={e => this.onSearch(e)} value={this.state.SearchString}  placeholder="Search for item Name"/>
                 <table className = "table">
                 <thead className = "thead">
-                    <tr>
+                    <tr className="text-center">
                         <th>Item Name</th>
                         <th>Category</th>
                         <th>Type</th>
@@ -92,7 +92,7 @@ export default class ItemsList extends Component {
                         
                     </tr>
                 </thead>
-                <tbody>
+                <tbody className="text-center" >
                     {this.itemsList()}
                 </tbody>
                 </table>

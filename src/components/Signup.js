@@ -85,7 +85,7 @@ export default class Signup extends Component {
 //where the magic happence
     render(){
         return (
-            <div>
+            <div className = "container">
                 <h1>
                 Sign up now!
                 </h1>

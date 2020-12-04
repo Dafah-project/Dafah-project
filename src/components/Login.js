@@ -43,18 +43,18 @@ export default class Login extends Component {
     render(){
         return (
                
-               
+               <div className = "container">
                 <form onSubmit={this.onSubmit}>
                 <label > User Name </label>
                 <br></br>
                 <br></br>
-                <input required type='text'className="form-control"value= {this.setState.username}onChange={this.onChangeUsername} placeholder='User Name'/>                   
+                <input required type='text' className="form-control" value= {this.setState.username} onChange={this.onChangeUsername} placeholder='User Name'/>                   
                 <br></br>
                 <br></br>
                 <label > Creat Password </label>
                 <br></br>
                 <br></br>
-                <input required  type="password" name="password" className="form-control"value= {this.setState.password} onChange={this.onChangePassword} placeholder='Creat Password' />
+                <input required  type="password" name="password" className="form-control" value= {this.setState.password} onChange={this.onChangePassword} placeholder='Creat Password' />
                 <br></br>
                 <br></br>
                 <input type='submit' value='Log In'/>
@@ -62,7 +62,7 @@ export default class Login extends Component {
                 <br></br>
                 <a href='/signup'>go to signup</a>
                 </form>
-             
+             </div>
             )  
     }
 }

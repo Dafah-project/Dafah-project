@@ -11,14 +11,17 @@ export default class Navbar extends Component {
         <Link to="/Homepage" className="navbar-brand">DAFAH</Link>
         <div className="collpase navbar-collapse">
         <ul className="navbar-nav mr-auto" >
-          <li className="navbar-item">
+          <li className="navbar-item" >
           <Link to="/AddItems" className="nav-link">Add Items</Link>
           </li>
           <li className="navbar-item">
           <Link to="/ItemsList" className="nav-link">Clothes</Link>
           </li>
           <li className="navbar-item">
-          <Link to="/addUser" className="nav-link">Sign up</Link>
+          <Link to="/login" className="nav-link">Login</Link>
+          </li>
+          <li className="navbar-item"onClick={logout}>
+          <Link to="/logout" className="nav-link">Log out</Link>
           </li>
         </ul>
         </div>
@@ -27,3 +30,11 @@ export default class Navbar extends Component {
     );
   }
 }
+
+
+ function logout(){
+
+  window.localStorage.clear();
+  window.location = '/Homepage'
+
+ }

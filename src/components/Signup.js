@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Footer from './Footer';
+
 //creat a class for the sign up component 
 export default class Signup extends Component {
     constructor(props) {
@@ -69,14 +71,18 @@ export default class Signup extends Component {
             //add conctions if the user name already taken
             //if(this.state.username )
            
-              axios.post("http://localhost:3000/addUser/adduser", user)
-            .then(res => console.log(res.data));
+            axios.post("http://localhost:3000/addUser/adduser", user)
+            .then(res => {
+            // console.log(user);
+
             window.location = '/login'
-            console.log(user);
-            console.log('user added')
-            
-            
-            
+
+            })  
+             
+           .catch(err => alert('user name or phone number is used') );
+          
+
+            //console.log('user added')   
         }
         
         
@@ -85,41 +91,57 @@ export default class Signup extends Component {
 //where the magic happence
     render(){
         return (
-            <div className = "container">
-                <h1>
-                Sign up now!
-                </h1>
-                <form onSubmit={this.onSubmit}>
+
+          <div>
+            <br />
+            <div className = "container text-center">
+            <form className="text-center border border-light p-9" onSubmit={this.onSubmit}>
+                <h3 className = "mb-3">
+                Sign Up
+                </h3>
+                <br />
+                <div className = "col">
                 <label > User Name </label>
                 <br></br>
-                <br></br>
-                <input required type='text'className="form-control"value= {this.setState.username}onChange={this.onChangeUsername} placeholder='User Name'/>                   
-                <br></br>
-                <br></br>
+                <input required='true' type='text'className="form-control col"value= {this.setState.username}onChange={this.onChangeUsername} placeholder='User Name'/>                   
+                <br></br>                
+                </div>
+
+
+
+                <div className = "col">
                 <label > Creat Password </label>
                 <br></br>
+                <input required='true'  type="password" name="password" className="form-control col"value= {this.setState.password} onChange={this.onChangePassword} placeholder='Creat Password' />
                 <br></br>
-                <input required  type="password" name="password" className="form-control"value= {this.setState.password} onChange={this.onChangePassword} placeholder='Creat Password' />
-                <br></br>
-                <br></br>
+                </div>
+
+                <div className = "col">
                 <label > Phone Number </label>
+
+                <input required='true'  className="form-control col"  value= {this.setState.phone} onChange={this.onChangePhone} placeholder='Phone Number' />
                 <br></br>
-                <br></br>
-                <input required  className="form-control"  value= {this.setState.phone} onChange={this.onChangePhone} placeholder='Phone Number' />
-                <br></br>
-                <br></br>
+                </div>
+
+                <div className = "col">
                 <label > Address </label>
                 <br></br>
+                <input required='true' type='text' className="form-control col" value= {this.setState.address} onChange={this.onChangeAddress} placeholder='Address' />
                 <br></br>
-                <input required type='text' className="form-control" value= {this.setState.address} onChange={this.onChangeAddress} placeholder='Address' />
+                </div>
+
+                <input type='submit' value='Creat Account' className="btn btn-deep-orange darken-4"/>
                 <br></br>
                 <br></br>
-                <input type='submit' value='Creat Account'/>
+                <b>If you already have an account<a href='/login'> Log In </a></b>
+                <br></br>
             </form>
-            <br></br>
-            <br></br>
-          <a href='/login'> to log in </a>
+       
             </div>
+            <Footer />
+            </div>
+          
+         
         )
     }
 }

@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Footer from './Footer';
+
+
+
 
 export default class Login extends Component {
     constructor(props) {
@@ -34,36 +38,51 @@ export default class Login extends Component {
         const user = {
           username: this.state.username,
           password: this.state.password
-        }
+        } 
+        
         axios.post("http://localhost:3000/addUser/login", user)
-            .then(res => console.log(res.data));
-            console.log(user);
-            console.log('user loged in')
+        .then(response =>{
+      // console.log (response)
+       window.localStorage.setItem('token', response.data);
+
+        window.location = '/AddItems'
+        })
+        .catch(err =>alert("username or password is incorrect") );         
     }
+
+
     render(){
         return (
-               
-               
-                <form onSubmit={this.onSubmit}>
+               <div>
+               <br />
+               <div className = "container">
+                <form className="text-center border border-light p-9" onSubmit={this.onSubmit}>
+                <h3 className = "mb-3">
+                Login
+                </h3>
+                <br />
+                <div className="col">
                 <label > User Name </label>
                 <br></br>
+                <input required = "true" className = "col" type='text' className="form-control" value= {this.setState.username}onChange={this.onChangeUsername} placeholder='Enter Your User Name'/>                   
                 <br></br>
-                <input required type='text'className="form-control"value= {this.setState.username}onChange={this.onChangeUsername} placeholder='User Name'/>                   
+                </div>
+                <br></br>
+                <div className="col">
+                <label > Password </label>
+                <br></br>
+                <input required = "true"  className = "col" type="password" name="password" className="form-control col"value= {this.setState.password} onChange={this.onChangePassword} placeholder='Enter Your Password' />
+                </div>
+                <br></br>
+                <input type='submit' value='Log In' className="btn btn-deep-orange darken-4"/>
                 <br></br>
                 <br></br>
-                <label > Creat Password </label>
-                <br></br>
-                <br></br>
-                <input required  type="password" name="password" className="form-control"value= {this.setState.password} onChange={this.onChangePassword} placeholder='Creat Password' />
-                <br></br>
-                <br></br>
-                <input type='submit' value='Log In'/>
-                <br></br>
-                <br></br>
-                <a href='/signup'>go to signup</a>
+                <p>Don't have an account? <a href='/addUser'> Sign Up</a></p>
                 </form>
-             
-            )  
+             </div>
+             <Footer />
+             </div>
+        )  
     }
 }
 

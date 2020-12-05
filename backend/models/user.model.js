@@ -8,6 +8,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique:true,
+        minlength:3,
         trim: true
     },
     password : {
@@ -19,12 +20,17 @@ const userSchema = new Schema({
     phone: {
         
         type: Number,
+         unique:true,
         min:10
     },
     address:{
         type: String,
         minlength: 4,
         required: true
+    },
+    date:{
+    type: Date,
+    default: Date.now    
     }
     
 });

@@ -1,12 +1,13 @@
 var express = require('express');
 var cors = require('cors');
 var mongoose = require('mongoose');
+var dotenv=require('dotenv');
 
 require('dotenv').config();
 
 var app = express();
 var port = process.env.PORT || 3000;
-
+//midleware
 app.use(cors());
 app.use(express.json());
 
@@ -21,10 +22,10 @@ connection.once('open', function() {
 //Connect to routers
 const addItemsRouter = require('./routes/addItems');
 const addUserRouter = require('./routes/addUser');
-const loginRouter = require('./routes/login')
+//const logInRouter = require('./routes/login')
 app.use('/addItems', addItemsRouter);
 app.use('/addUser', addUserRouter);
-app.use('/login', loginRouter);
+//app.use('/login', logInRouter);
 
 
 //Run the server

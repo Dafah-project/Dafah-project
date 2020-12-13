@@ -36,7 +36,7 @@ the uesrs are two types 1: people who want to give away items
 ​
 - Node exepress
 - react 
-- mysql
+- mongoDB
 - bootstrap 
 - bcrypt - Token 
 - Heroku

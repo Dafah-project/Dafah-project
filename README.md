@@ -1,4 +1,4 @@
-# Dafa
+# Dafah
 ​
 > DAFAH, translated to "Warmth", is a charity organization aimed towards connecting the first party (donator) to the third party (recipient of the donation) whereas a donator signs up, and uploads the item that he/she wants to donate and the recipient clicks on the item that he/she is in need for creating a direct connection between both. For the project requirements, we did the firts party's user interface.
 ​

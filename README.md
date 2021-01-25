@@ -54,5 +54,5 @@ npm install
 bower install
 ```
 ## Demo Video
-https://www.youtube.com/watch?v=fKe5rWgLaPE
+https://youtu.be/fKe5rWgLaPE
 

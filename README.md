@@ -1,12 +1,12 @@
 # Dafa
 ​
-> a website that allows people to upload images and description of winter supplies, and allows people in need to go on and choose what they need. to later be delivered to them.
+> DAFAH, translated to "Warmth", is a charity organization aimed towards connecting the first party (donator) to the third party (recipient of the donation) whereas a donator signs up, and uploads the item that he/she wants to donate and the recipient clicks on the item that he/she is in need for creating a direct connection between both. For the project requirements, we did the firts party's user interface.
 ​
 ## Team
 ​
   - __Product Owner__: Fatima 
   - __Scrum Master__: Rahaf 
-  - __Development Team Members__: Nour , Dialah , fatima , rahaf
+  - __Development Team Members__: Nour , Dialah , Fatima , Rahaf
 ​
 ## Table of Contents
 ​
@@ -53,3 +53,6 @@ sudo npm install -g bower
 npm install
 bower install
 ```
+## Demo Video
+https://www.youtube.com/watch?v=fKe5rWgLaPE
+
